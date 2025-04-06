@@ -159,9 +159,11 @@ async function createPiece(){
     if(torres[tower][torres[tower].length - 1] == 0){
         torres[tower][torres[tower].length - 1] = newPiece
         updateCanvas()
-        await esperar(500)
+        await esperar(300)
         fall(tower)
         updateCanvas()
+    }else{
+        gameOver()
     }
 }
 
@@ -174,7 +176,7 @@ async function fall(bar){ //aplica a gravidade e suma as peças
     while(canSum){
         gravity(bar)
         updateCanvas()
-        await esperar(500)
+        await esperar(300)
         canSum = sum(bar)
        
     }
@@ -215,7 +217,9 @@ function updateCanvas(){ //atualiza o estado do canvas
 
 }
 
-
+function gameOver(){
+    document.write('game over')
+}
 
 updateCanvas(0)
 
